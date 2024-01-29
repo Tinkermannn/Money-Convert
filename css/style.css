@@ -42,7 +42,7 @@ body {
     font-weight: 700;
     color: #fff;
     align-items: center;
-    background: url('/img/logo2.png') no-repeat left center; 
+    background: url(/img/logo2.png) no-repeat left center; 
     background-size: 40px auto; 
     padding-left: 41px;
 
