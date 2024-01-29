@@ -58,3 +58,12 @@ function convert() {
 }
 
 document.getElementById('convertButton').addEventListener('click', convert);
+
+var typing = new Typed ("#text-gerak", {
+    strings: ["Money Convertor"],
+    typeSpeed: 100,
+    backSpeed: 0,
+    loop: false,
+    backDelay: 0,
+    showCursor: false,
+});
