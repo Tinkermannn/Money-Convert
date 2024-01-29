@@ -14,8 +14,7 @@ function convert() {
     let exchangeRate;
 
     if (nilaiawal === 'BTC' && nilaiakhir === 'BTC') {
-        exchangeRate = 1; // Kurs Bitcoin ke Bitcoin adalah 1
-        const convertedAmount = input1 * exchangeRate;
+        const convertedAmount = input1;
         document.getElementById('result').innerHTML = `${input1} ${nilaiawal} = ${convertedAmount.toFixed(2)} ${nilaiakhir}`;
     } else if (nilaiawal === 'BTC' || nilaiakhir === 'BTC') {
         fetch(bitcoinApiUrl)
@@ -42,7 +41,7 @@ function convert() {
         fetch(otherCurrencyApiUrl)
             .then(response => response.json())
             .then(data => {
-                exchangeRate = data.conversion_rates[nilaiakhir];
+                exchangeRate = data.conversion_rates[nilaiakhir] / data.conversion_rates[nilaiawal];
 
                 if (exchangeRate) {
                     const convertedAmount = input1 * exchangeRate;
@@ -58,15 +57,4 @@ function convert() {
     }
 }
 
-// Tambahkan event listener untuk memanggil fungsi convert() saat tombol Convert diklik
 document.getElementById('convertButton').addEventListener('click', convert);
-
-// Text Gerak
-var typing = new Typed("#text-gerak", {
-    strings: ["Money Convertor"],
-    typeSpeed: 100,
-    backSpeed: 0,
-    loop: false,
-    backDelay: 0,
-    showCursor: false,
-});
